@@ -2,8 +2,6 @@ require 'rails/generators'
 
 module SendInBlue
   module Generators
-    MissingORMError = Class.new(Thor::Error)
-
     class InstallGenerator < Rails::Generators::Base
       desc "Setup Send In Blue integration"
       # class_option :orm, required: true
@@ -25,10 +23,6 @@ module SendInBlue
         # end
 
         copy_file "initializer.rb", "config/initializers/send_in_blue.rb"
-      end
-
-      def create_email_templates_model
-        generate "model", "SendInBlueEmailTemplate", "sib_template_id:integer event:integer"
       end
     end
   end
