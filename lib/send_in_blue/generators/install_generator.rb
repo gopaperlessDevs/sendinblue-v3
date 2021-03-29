@@ -2,8 +2,8 @@ require 'rails/generators'
 
 module SendInBlue
   module Generators
-    class InstallGenerator < Rails::Generators::Base
-      desc "Setup Send In Blue integration"
+    class InstallGenerator < Rails::Generators::NamedBase
+      desc "Setup Send In Blue integration. Argument is the name of your Send In Blue Contact model, e.g. User"
       # class_option :orm, required: true
 
       def self.source_root
@@ -23,6 +23,10 @@ module SendInBlue
         # end
 
         copy_file "initializer.rb", "config/initializers/send_in_blue.rb"
+      end
+
+      def add_send_in_blue_id_to_contact_model
+        generate "migration", "AddSendInBlueIdTo#{plural_name}", "send_in_blue_id:string:uniq"
       end
     end
   end
