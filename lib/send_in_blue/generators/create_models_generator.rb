@@ -2,7 +2,7 @@ require 'rails/generators'
 
 module SendInBlue
   module Generators
-    class InstallGenerator < Rails::Generators::Base
+    class CreateModelsGenerator < Rails::Generators::Base
       desc "Create model to integrate Send In Blue email templates into the app."
       # class_option :orm, required: true
 
