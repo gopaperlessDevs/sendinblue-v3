@@ -13,7 +13,7 @@ and on heroku:
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "sendinblue-v3", git: 'https://github.com/gopaperlessDevs/sendinblue-v3.git'
+gem "send_in_blue", git: 'https://github.com/gopaperlessDevs/send_in_blue.git'
 ```
 
 And then execute:
@@ -66,7 +66,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/sendinblue-v3.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/send_in_blue.
 
 ## License
 

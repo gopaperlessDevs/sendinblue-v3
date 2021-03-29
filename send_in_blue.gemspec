@@ -3,21 +3,21 @@
 require_relative "lib/send_in_blue/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "sendinblue-v3"
+  spec.name          = "send_in_blue"
   spec.version       = SendInBlue::VERSION
   spec.authors       = ["Ethaning"]
   spec.email         = ["ethan.carter@gopaperless.eu"]
 
   spec.summary       = "Integration for sendinblue APIs "
   # spec.description   = "TODO: Write a longer description or delete this line."
-  spec.homepage      = "https://github.com/gopaperlessDevs/sendinblue-v3"
+  spec.homepage      = "https://github.com/gopaperlessDevs/send_in_blue"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
 
   spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/gopaperlessDevs/sendinblue-v3"
+  spec.metadata["source_code_uri"] = "https://github.com/gopaperlessDevs/send_in_blue"
   # spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.

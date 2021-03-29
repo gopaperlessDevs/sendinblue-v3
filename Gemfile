@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in sendinblue-v3.gemspec
+# Specify your gem's dependencies in send_in_blue.gemspec
 gemspec
 
 gem "rake", "~> 13.0"
