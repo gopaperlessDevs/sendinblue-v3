@@ -34,7 +34,25 @@ end
 ```
 ## Usage
 
-TODO: Write usage instructions here
+Include ```SendInBlue::Contact``` in the model which should correspond to Send In Blue contacts.
+
+Configure a custom id field for use with SendInBlue APIs wth ```send_in_blue_id```.
+Configure a custom contact attributes for use with SendInBlue APIs wth ```send_in_blue_attributes```.
+
+
+```ruby
+# class User
+class Account
+  # ...
+  include SendInBlue::Contact
+
+  send_in_blue_id :custom_id_field
+  send_in_blue_attributes :subscribe_gdpr_news, :full_name, :email, :has_been_reseller,
+                          :is_subscribed, ...
+
+  # ...
+end
+```
 
 ## Development
 
