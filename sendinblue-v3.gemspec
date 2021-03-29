@@ -31,8 +31,8 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   spec.add_runtime_dependency 'sib-api-v3-sdk'
-  spec.add_runtime_dependency 'sidekiq'
-  spec.add_runtime_dependency 'activesupport'
+  spec.add_runtime_dependency 'sidekiq', ">= 2"
+  spec.add_runtime_dependency 'activesupport', ">= 5"
   spec.add_runtime_dependency 'addressable'
 
   spec.add_development_dependency 'pry'

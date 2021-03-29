@@ -1,11 +1,11 @@
 PATH
   remote: .
   specs:
-    sendinblue-v3 (0.1.0)
-      activesupport
+    sendinblue-v3 (0.1.1)
+      activesupport (>= 5)
       addressable
       sib-api-v3-sdk
-      sidekiq
+      sidekiq (>= 2)
 
 GEM
   remote: https://rubygems.org/
