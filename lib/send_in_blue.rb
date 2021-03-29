@@ -13,7 +13,9 @@ require 'send_in_blue/workers/contact_worker'
 require 'send_in_blue/workers/event_email_worker'
 
 # generators
+require 'send_in_blue/generators'
 require 'send_in_blue/generators/install_generator'
+require 'send_in_blue/generators/create_models_generator'
 require 'send_in_blue/generators/templates/initializer'
 
 
