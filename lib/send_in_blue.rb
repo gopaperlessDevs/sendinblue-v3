@@ -16,8 +16,7 @@ require 'send_in_blue/workers/event_email_worker'
 require 'send_in_blue/generators'
 require 'send_in_blue/generators/install_generator'
 require 'send_in_blue/generators/create_models_generator'
-require 'send_in_blue/generators/templates/initializer'
-
+# require 'send_in_blue/generators/templates/initializer'
 
 module SendInBlue
   class Error < StandardError; end
