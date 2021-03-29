@@ -21,6 +21,7 @@ class SendInBlue::ContactWorker
 
   def create
     res = api_instance.create_contact(SibApiV3Sdk::CreateContact.new(contact.send_in_blue_attributes))
+
     contact.update_send_in_blue_id!(JSON.parse(res)["id"])
   end
 
