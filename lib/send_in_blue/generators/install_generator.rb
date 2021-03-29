@@ -28,7 +28,7 @@ module SendInBlue
       end
 
       def create_email_templates_model
-        generate "model", "SendInBlueEmailTemplates", "sib_template_id:integer event:integer"
+        generate "model", "SendInBlueEmailTemplate", "sib_template_id:integer event:integer"
       end
     end
   end
