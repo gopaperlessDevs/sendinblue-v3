@@ -35,6 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'activesupport'
 
   # s.add_development_dependency 'vcr', '~> 3.0', '>= 3.0.1'
+  spec.add_development_dependency "rails", ">= 5"
 
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html
