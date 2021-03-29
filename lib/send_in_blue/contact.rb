@@ -19,10 +19,6 @@ module SendInBlue
       def send_in_blue_id(id_field)
         raise SendInBlue::Error, "Must set send_in_blue_id on the SendInBlue Contact model" if id_field.blank?
 
-        SendInBlue::configure do |c|
-          c.contact_model = self
-        end
-
         self.send_in_blue_settings[:id_field] = id_field
       end
     end

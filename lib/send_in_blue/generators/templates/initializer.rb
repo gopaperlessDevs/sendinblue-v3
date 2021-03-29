@@ -12,3 +12,8 @@ SibApiV3Sdk.configure do |config|
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['partner-key'] = 'Bearer'
 end
+
+SendInBlue::configure do |c|
+  # insert your own contact model here
+  c.contact_model = User
+end
