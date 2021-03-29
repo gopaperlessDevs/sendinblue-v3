@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "sendinblue/v3"
+require "send_in_blue"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/sendinblue/v3/version"
+require_relative "lib/send_in_blue/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "sendinblue-v3"
-  spec.version       = Sendinblue::V3::VERSION
+  spec.version       = SendInBlue::VERSION
   spec.authors       = ["Ethaning"]
   spec.email         = ["ethan.carter@gopaperless.eu"]
 
