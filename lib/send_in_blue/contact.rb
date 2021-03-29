@@ -18,6 +18,7 @@ module SendInBlue
 
       def send_in_blue_id(id_field)
         raise SendInBlue::Error, "Must set send_in_blue_id on the SendInBlue Contact model" if id_field.blank?
+        raise SendInBlue::Error, "send_in_blue_id cannot be main id field!" if id.to_sym == :id
 
         self.send_in_blue_settings[:id_field] = id_field
       end
