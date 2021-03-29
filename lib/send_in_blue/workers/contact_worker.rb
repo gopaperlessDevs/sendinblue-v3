@@ -10,7 +10,7 @@ class SendInBlue::ContactWorker
 
     send :action
   rescue SibApiV3Sdk::ApiError => e
-    raise SendInBlue::Error.new("Error when calling SendInBlue ContactsApi.#{action} for #{user_id}: #{e}"
+    raise SendInBlue::Error.new("Error when calling SendInBlue ContactsApi.#{action} for #{user_id}: #{e}")
   end
 
   private
