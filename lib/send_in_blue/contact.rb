@@ -9,7 +9,7 @@ module SendInBlue
                       instance_writer: false,
                       default: {
                         attributes: [],
-                        id_field: :id,
+                        id_field: nil,
                         consent_field: nil,
                       }
 
@@ -24,7 +24,7 @@ module SendInBlue
 
       def send_in_blue_id(id_field)
         raise SendInBlue::Error, "Must set send_in_blue_id on the SendInBlue Contact model" if id_field.blank?
-        raise SendInBlue::Error, "send_in_blue_id cannot be main id field!" if id.to_sym == :id
+        raise SendInBlue::Error, "send_in_blue_id cannot be main id field!" if id_field.to_sym == :id
 
         self.send_in_blue_settings[:id_field] = id_field
       end
