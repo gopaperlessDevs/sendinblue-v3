@@ -35,7 +35,7 @@ module SendInBlue
     end
 
     def update_send_in_blue_id!(sib_id)
-      update! { send_in_blue_settings[:id_field] => sib_id }
+      update!({ send_in_blue_settings[:id_field] => sib_id })
     end
 
     def consents_to_send_in_blue_email?
