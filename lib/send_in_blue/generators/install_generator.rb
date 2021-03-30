@@ -26,7 +26,7 @@ module SendInBlue
       end
 
       def add_send_in_blue_id_to_contact_model
-        generate "migration", "AddSendInBlueIdTo#{class_name}", "send_in_blue_id:string:uniq"
+        generate "migration", "AddSendInBlueIdTo#{class_name.pluralize}", "send_in_blue_id:integer:uniq"
       end
     end
   end
