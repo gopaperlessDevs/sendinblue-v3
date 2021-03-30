@@ -10,6 +10,7 @@ module SendInBlue
                       default: {
                         attributes: [],
                         id_field: nil,
+                        email_field: :email,
                         consent_field: nil,
                       }
 
@@ -27,6 +28,10 @@ module SendInBlue
         raise SendInBlue::Error, "send_in_blue_id cannot be main id field!" if id_field.to_sym == :id
 
         self.send_in_blue_settings[:id_field] = id_field
+      end
+
+      def send_in_blue_email_field(email_field = :email)
+        self.send_in_blue_settings[:email_field] = email_field
       end
 
       def send_in_blue_consent_field(consent_field)
@@ -56,7 +61,11 @@ module SendInBlue
     private
 
     def send_in_blue_attribute_fields
-      [:sib_id, :sib_consent].concat(self.class.send_in_blue_settings[:attributes])
+      [
+        :sib_id,
+        self.class.send_in_blue_settings[:email_field],
+        :sib_consent,
+      ].concat(self.class.send_in_blue_settings[:attributes])
     end
 
     def update_send_in_blue_contact
