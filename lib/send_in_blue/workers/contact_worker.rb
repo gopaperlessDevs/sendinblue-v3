@@ -4,7 +4,6 @@ class SendInBlue::ContactWorker
   include Sidekiq::Worker
 
   attr_accessor :contact
-  attr_reader :api_instance
 
   def perform(contact_id, action)
     @contact = SendInBlue.config.contact_model.find(contact_id)
