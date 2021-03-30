@@ -42,6 +42,9 @@ module SendInBlue
       send send_in_blue_settings[:consent_field]
     end
 
+    alias consents_to_send_in_blue_email consents_to_send_in_blue_email?
+    alias sib_consent consents_to_send_in_blue_email?
+
     private
 
     def send_in_blue_attributes
