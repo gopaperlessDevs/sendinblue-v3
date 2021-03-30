@@ -8,6 +8,6 @@ class SendInBlue::EventEmailWorker
 
     send :action, opts
   rescue SibApiV3Sdk::ApiError => e
-    raise SendInBlue::Error.new("Error when calling SendInBlue ContactsApi.#{action} for #{user_id}: #{e}")
+    raise SendInBlue::Error, "Error when calling SendInBlue ContactsApi.#{action} for #{user_id}: #{e}"
   end
 end

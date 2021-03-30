@@ -3,20 +3,21 @@
 class SendInBlue::ContactWorker
   include Sidekiq::Worker
 
-  attr_accessor :contact, :api_instance
+  attr_accessor :contact
+  attr_reader :api_instance
 
   def perform(contact_id, action)
     @contact = SendInBlue.config.contact_model.find(contact_id)
 
     send :action
   rescue SibApiV3Sdk::ApiError => e
-    raise SendInBlue::Error.new("Error when calling SendInBlue ContactsApi.#{action} for #{contact_id}: #{e}")
+    raise SendInBlue::Error, "Error when calling SendInBlue ContactsApi.#{action} for #{contact_id}: #{e}"
   end
 
   private
 
   def api_instance
-    @api_instance = SibApiV3Sdk::ContactsApi.new
+    @api_instance ||= SibApiV3Sdk::ContactsApi.new
   end
 
   def create

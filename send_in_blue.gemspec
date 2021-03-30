@@ -30,16 +30,16 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
-  spec.add_runtime_dependency 'sib-api-v3-sdk'
-  spec.add_runtime_dependency 'sidekiq', ">= 2"
-  spec.add_runtime_dependency 'activesupport', ">= 5"
-  spec.add_runtime_dependency 'addressable'
+  spec.add_runtime_dependency "activesupport", ">= 5"
+  spec.add_runtime_dependency "addressable"
+  spec.add_runtime_dependency "sib-api-v3-sdk"
+  spec.add_runtime_dependency "sidekiq", ">= 2"
 
-  spec.add_development_dependency 'pry'
+  spec.add_development_dependency "pry"
   spec.add_development_dependency "rails", ">= 5"
-  spec.add_development_dependency 'rubocop'
-  spec.add_development_dependency 'rubocop-performance'
-  spec.add_development_dependency 'rubocop-rails'
+  spec.add_development_dependency "rubocop"
+  spec.add_development_dependency "rubocop-performance"
+  spec.add_development_dependency "rubocop-rails"
 
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html

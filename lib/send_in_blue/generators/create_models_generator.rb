@@ -1,4 +1,4 @@
-require 'rails/generators'
+require "rails/generators"
 
 module SendInBlue
   module Generators
@@ -7,7 +7,7 @@ module SendInBlue
       # class_option :orm, required: true
 
       def self.source_root
-        @source_root ||= File.join(File.dirname(__FILE__), 'templates')
+        @source_root ||= File.join(File.dirname(__FILE__), "templates")
       end
 
       def create_email_templates_model
