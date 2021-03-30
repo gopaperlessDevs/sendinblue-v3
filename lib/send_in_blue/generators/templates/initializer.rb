@@ -16,4 +16,5 @@ end
 SendInBlue.configure do |c|
   # insert your own contact model here
   c.contact_model = User
+  c.env = ENV["SEND_IN_BLUE_ENV"] || Rails.env
 end
