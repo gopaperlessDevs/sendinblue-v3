@@ -45,10 +45,19 @@ module SendInBlue
     alias consents_to_send_in_blue_email consents_to_send_in_blue_email?
     alias sib_consent consents_to_send_in_blue_email?
 
+    def send_in_blue_attributes
+      slice *send_in_blue_attribute_fields
+    end
+
     private
 
-    def send_in_blue_attributes
-      slice *self.class.send_in_blue_settings[:attributes]
+    def send_in_blue_attribute_fields
+      [
+        self.class.send_in_blue_settings[:id_field],
+        self.class.send_in_blue_settings[:consent_field],
+      ].concat(
+        self.class.send_in_blue_settings[:attributes]
+      )
     end
 
     def update_send_in_blue_contact
