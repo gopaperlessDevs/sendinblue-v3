@@ -39,7 +39,7 @@ module SendInBlue
     end
 
     def consents_to_send_in_blue_email?
-      send send_in_blue_settings[:consent_field]
+      !!(send send_in_blue_settings[:consent_field])
     end
 
     alias consents_to_send_in_blue_email consents_to_send_in_blue_email?
