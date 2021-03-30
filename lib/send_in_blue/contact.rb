@@ -49,7 +49,7 @@ module SendInBlue
     end
 
     def sib_id
-      send send_in_blue_settings[:id_field])
+      send send_in_blue_settings[:id_field]
     end
 
     def consents_to_send_in_blue_email?
