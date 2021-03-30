@@ -1,13 +1,24 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+inherit_from:
+  - https://raw.githubusercontent.com/carbonfive/c5-conventions/master/rubocop/rubocop.yml
+
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.6
 
-Style/StringLiterals:
+Rails:
   Enabled: true
-  EnforcedStyle: double_quotes
 
-Style/StringLiteralsInInterpolation:
-  Enabled: true
-  EnforcedStyle: double_quotes
+Layout/FirstHashElementIndentation:
+  Enabled: false
 
-Layout/LineLength:
-  Max: 120
+Style/AsciiComments:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  Enabled: false
