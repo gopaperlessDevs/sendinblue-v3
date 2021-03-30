@@ -26,15 +26,20 @@ module SendInBlue
       def send_in_blue_id(id_field)
         raise SendInBlue::Error, "Must set send_in_blue_id on the SendInBlue Contact model" if id_field.blank?
         raise SendInBlue::Error, "send_in_blue_id cannot be main id field!" if id_field.to_sym == :id
+        ensure_field_existence!(id_field)
 
         self.send_in_blue_settings[:id_field] = id_field
       end
 
       def send_in_blue_email_field(email_field = :email)
+        ensure_field_existence!(email_field)
+
         self.send_in_blue_settings[:email_field] = email_field
       end
 
       def send_in_blue_consent_field(consent_field)
+        ensure_field_existence!(consent_field)
+
         self.send_in_blue_settings[:consent_field] = consent_field
       end
     end
@@ -74,6 +79,12 @@ module SendInBlue
 
     def delete_send_in_blue_contact
       SendInBlue::ContactWorker.perform_async(id, :delete)
+    end
+
+    def ensure_field_existence!(field)
+      unless self.class.new.respond_to?(field)
+        raise NameError, "Could not find instance method '#{field}' on #{self.class}"
+      end
     end
   end
 end
