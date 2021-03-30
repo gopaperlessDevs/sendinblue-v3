@@ -5,7 +5,13 @@ module SendInBlue
     extend ActiveSupport::Concern
 
     included do
-      class_attribute :send_in_blue_settings, instance_writer: false, default: { attributes: [], id_field: :id }
+      class_attribute :send_in_blue_settings,
+                      instance_writer: false,
+                      default: {
+                        attributes: [],
+                        id_field: :id,
+                        consent_field: nil,
+                      }
 
       after_save :update_send_in_blue_contact
       after_destroy :delete_send_in_blue_contact
@@ -22,10 +28,18 @@ module SendInBlue
 
         self.send_in_blue_settings[:id_field] = id_field
       end
+
+      def send_in_blue_consent_field(consent_field)
+        self.send_in_blue_settings[:consent_field] = consent_field
+      end
     end
 
     def update_send_in_blue_id!(sib_id)
-      contact.update! { contact.send_in_blue_settings[:id_field] => sib_id }
+      update! { send_in_blue_settings[:id_field] => sib_id }
+    end
+
+    def consents_to_send_in_blue_email?
+      send send_in_blue_settings[:consent_field]
     end
 
     private

@@ -28,6 +28,7 @@ class SendInBlue::ContactWorker
   def update
     # if contact doesnt have sendinblue id, then create contact
     return create unless contact.contact_send_in_blue_id
+    return false unless contact.consents_to_send_in_blue_email?
 
     api_instance.update_contact(
       contact.contact_send_in_blue_id,
