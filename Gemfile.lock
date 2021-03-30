@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    send_in_blue (0.1.20)
+    send_in_blue (0.1.21)
       activesupport (>= 5)
       addressable
       sib-api-v3-sdk

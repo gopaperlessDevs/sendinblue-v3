@@ -43,6 +43,12 @@ module SendInBlue
 
         send_in_blue_settings[:consent_field] = consent_field
       end
+
+      private
+
+      def ensure_field_existence!(field)
+        self.class.new.respond_to?(field)
+      end
     end
 
     def update_send_in_blue_id!(sib_id)
@@ -80,12 +86,6 @@ module SendInBlue
 
     def delete_send_in_blue_contact
       SendInBlue::ContactWorker.perform_async(id, :delete)
-    end
-
-    def ensure_field_existence!(field)
-      unless self.class.new.respond_to?(field)
-        raise NameError, "Could not find instance method '#{field}' on #{self.class}"
-      end
     end
   end
 end
