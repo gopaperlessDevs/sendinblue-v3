@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module SendInBlue
   module Contact
     extend ActiveSupport::Concern
@@ -49,7 +47,7 @@ module SendInBlue
       end
 
       def send_in_blue_default_attributes
-        [:sib_consent, :sib_env]
+        %i[sib_consent sib_env]
       end
 
       private
@@ -82,14 +80,12 @@ module SendInBlue
       slice(*send_in_blue_attribute_fields)
     end
 
-    private
-
     def send_in_blue_attribute_fields
       [
         :sib_id,
         self.class.send_in_blue_settings[:email_field],
         :sib_consent,
-        :sib_env,
+        :sib_env
       ].concat(self.class.send_in_blue_settings[:attributes])
     end
 

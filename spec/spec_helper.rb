@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require "send_in_blue"
 
 RSpec.configure do |config|
