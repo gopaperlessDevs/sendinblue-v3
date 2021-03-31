@@ -25,7 +25,9 @@ module SendInBlue
         contacts_api.delete_contact(contact.contact_send_in_blue_id)
       end
 
-      delegate :get_attributes, to: :contacts_api
+      def get_attributes
+        contacts_api.get_attributes
+      end
 
       def create_attribute(attr_name, type, category = "normal")
         attr_properties = SibApiV3Sdk::CreateAttribute.new(type: type)
