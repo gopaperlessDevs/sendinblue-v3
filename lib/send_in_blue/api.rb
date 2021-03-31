@@ -1,5 +1,5 @@
 module SendInBlue
-  class Api
+  class API
     class << self
       def create_contact(contact)
         contact_data = SibApiV3Sdk::CreateContact.new email: contact.sib_email, attributes: contact.send_in_blue_attributes
