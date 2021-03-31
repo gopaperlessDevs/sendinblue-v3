@@ -13,7 +13,7 @@ module SendInBlue
                       }
 
       after_save :update_send_in_blue_contact
-      after_destroy :delete_send_in_blue_contact
+      before_destroy :delete_send_in_blue_contact
     end
 
     class_methods do
