@@ -28,7 +28,7 @@ namespace :send_in_blue do
 
     local_attrs.each do |attr|
       puts "Select a type for attr '#{attr}': (T)ext, (D)ate, (N)umber, (B)oolean"
-      input = gets.chomp.downcase
+      input = STDIN.gets.chomp.downcase
 
       type = case input
       when "t", "text"
