@@ -65,6 +65,10 @@ module SendInBlue
       send send_in_blue_settings[:id_field]
     end
 
+    def sib_email
+      send send_in_blue_settings[:email_field]
+    end
+
     def consents_to_send_in_blue_email?
       !!(send send_in_blue_settings[:consent_field])
     end
@@ -80,10 +84,12 @@ module SendInBlue
       slice(*send_in_blue_attribute_fields)
     end
 
+    def send_in_blue_update_attributes
+      slice(*[self.class.send_in_blue_settings[:email_field]].concat(send_in_blue_attribute_fields))
+    end
+
     def send_in_blue_attribute_fields
       [
-        :sib_id,
-        self.class.send_in_blue_settings[:email_field],
         :sib_consent,
         :sib_env
       ].concat(self.class.send_in_blue_settings[:attributes])
