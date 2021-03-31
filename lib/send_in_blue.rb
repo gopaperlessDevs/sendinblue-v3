@@ -20,7 +20,7 @@ require "send_in_blue/generators/install_generator"
 require "send_in_blue/generators/create_models_generator"
 
 # tasks
-require "send_in_blue/tasks/send_in_blue"
+require "send_in_blue/railtie" if defined?(Rails::Railtie)
 
 module SendInBlue
   class Error < StandardError; end
