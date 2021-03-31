@@ -30,10 +30,9 @@ module SendInBlue
         )
       end
 
-      def delete_contact(contact)
-        contacts_api.delete_contact(contact.contact_send_in_blue_id)
-
-        contact.update_send_in_blue_id!(nil) unless contact.destroyed?
+      def delete_contact(sib_id)
+        contacts_api.delete_contact(sib_id)
+        # contact.update_send_in_blue_id!(nil) unless contact.destroyed?
       end
 
       def get_attributes

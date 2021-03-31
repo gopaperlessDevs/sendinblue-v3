@@ -109,7 +109,7 @@ module SendInBlue
     end
 
     def delete_send_in_blue_contact
-      SendInBlue::ContactWorker.perform_async(id, :delete)
+      SendInBlue::ContactWorker.perform_async(sib_id, :delete)
     end
   end
 end
