@@ -60,6 +60,13 @@ class Account
 end
 ```
 
+To upload new local contact attributes to SendInBlue, run:
+```bash
+rails send_in_blue:sync_contact_attributes_to_remote
+```
+
+You will have to manually enter the type for each new attribute. Valid attribute types are: (T)ext, (D)ate, (N)umber, (B)oolean.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
