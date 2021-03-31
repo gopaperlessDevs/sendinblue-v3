@@ -9,7 +9,7 @@ namespace :send_in_blue do
 
   def sync_default_attributes(remote_attrs)
     default_attrs = SendInBlue.config.contact_model.send_in_blue_default_attributes.dup
-    default_attrs.each { |a| local_attrs.delete(a) }
+    remote_attrs.each { |a| default_attrs.delete(a) }
 
     default_attrs.each do |attr|
       if attr.to_sym == :sib_consent
