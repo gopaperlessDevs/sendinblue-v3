@@ -20,7 +20,8 @@ module SendInBlue
 
     class_methods do
       def send_in_blue_attributes(*args)
-        send_in_blue_settings[:attributes] = args
+        @attributes ||= args
+        send_in_blue_settings[:attributes] = @attributes
       end
 
       def send_in_blue_id(id_field)
@@ -28,20 +29,23 @@ module SendInBlue
         raise SendInBlue::Error, "send_in_blue_id cannot be main id field!" if id_field.to_sym == :id
 
         ensure_field_existence!(id_field)
+        @id_field ||= id_field
 
-        send_in_blue_settings[:id_field] = id_field
+        send_in_blue_settings[:id_field] = @id_field
       end
 
       def send_in_blue_email_field(email_field = :email)
         ensure_field_existence!(email_field)
+        @email_field ||= email_field
 
-        send_in_blue_settings[:email_field] = email_field
+        send_in_blue_settings[:email_field] = @email_field
       end
 
       def send_in_blue_consent_field(consent_field)
         ensure_field_existence!(consent_field)
+        @consent_field ||= consent_field
 
-        send_in_blue_settings[:consent_field] = consent_field
+        send_in_blue_settings[:consent_field] = @consent_field
       end
 
       private
