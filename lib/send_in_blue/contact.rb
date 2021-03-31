@@ -48,6 +48,10 @@ module SendInBlue
         send_in_blue_settings[:consent_field] = @consent_field
       end
 
+      def send_in_blue_default_attributes
+        [:sib_consent, :sib_env]
+      end
+
       private
 
       def ensure_field_existence!(field)
