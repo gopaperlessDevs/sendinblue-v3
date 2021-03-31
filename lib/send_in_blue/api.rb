@@ -3,27 +3,37 @@ module SendInBlue
     class << self
       def create_contact(contact)
         contact_data = SibApiV3Sdk::CreateContact.new email: contact.sib_email, attributes: contact.send_in_blue_attributes
+        result = nil
 
-        result = contacts_api.create_contact(contact_data)
+        begin
+          result = contacts_api.create_contact(contact_data)
+        rescue SibApiV3Sdk::ApiError => e
+          result = contacts_api.get_contact_info(contact.sib_email)
+        end
 
-        contact.update_send_in_blue_id!(JSON.parse(res)["id"])
+        contact.update_send_in_blue_id!(result.id)
         result
       end
 
       # if contact doesnt have sendinblue id and hasnt opeted in, then do nothing
       # if contact doesnt have sendinblue id, then create contact
+      #
+      # Note: updating email attr only works if email has changed.
+      #
       def update_contact(contact)
         return false if !contact.sib_id && !contact.consents_to_send_in_blue_email?
         return create_contact(contact) if !contact.sib_id
 
         contacts_api.update_contact(
           contact.sib_id,
-          SibApiV3Sdk::UpdateContact.new(contact.send_in_blue_update_attributes)
+          SibApiV3Sdk::UpdateContact.new(attributes: contact.send_in_blue_update_attributes)
         )
       end
 
       def delete_contact(contact)
         contacts_api.delete_contact(contact.contact_send_in_blue_id)
+
+        contact.update_send_in_blue_id!(nil) unless contact.destroyed?
       end
 
       def get_attributes

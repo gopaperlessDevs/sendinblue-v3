@@ -85,7 +85,11 @@ module SendInBlue
     end
 
     def send_in_blue_update_attributes
-      slice(*[self.class.send_in_blue_settings[:email_field]].concat(send_in_blue_attribute_fields))
+      # TODO: allow emails to be updated in SIB when they are updated in the app
+      #
+      # slice(*[self.class.send_in_blue_settings[:email_field]].concat(send_in_blue_attribute_fields))
+      #
+      send_in_blue_attributes
     end
 
     def send_in_blue_attribute_fields
