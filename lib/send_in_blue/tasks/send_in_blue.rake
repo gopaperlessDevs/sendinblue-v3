@@ -1,5 +1,5 @@
 namespace :send_in_blue do
-  desc "Adds any send_in_blue contact attributes to the SendInBlue servers, which are currently missing on their servers."
+  desc "Adds any send_in_blue contact attributes to the SendInBlue servers, which are currently missing on the remote."
   task sync_contact_attributes_to_remote: :environment do
     remote_attrs = SendInBlue::Api.get_attributes.attributes.map { |x| x.name.downcase.to_sym }
 
@@ -15,7 +15,7 @@ namespace :send_in_blue do
       if attr.to_sym == :sib_consent
         puts "Creating SendInBlue attribute: #{attr}!"
         SendInBlue::Api.create_attribute(attr, "boolean")
-      if attr.to_sym == :sib_env
+      elsif attr.to_sym == :sib_env
         puts "Creating SendInBlue attribute: #{attr}!"
         SendInBlue::Api.create_attribute(attr, "text")
       end
