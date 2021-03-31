@@ -50,7 +50,7 @@ class Account
   # ...
   include SendInBlue::Contact
 
-  send_in_blue_id :custom_id_field
+  send_in_blue_id :send_in_blue_id
   send_in_blue_email_field :contact_email # defaults to :email
   send_in_blue_consent_field :gdpr_opt_in_field
   send_in_blue_attributes :subscribe_gdpr_news, :full_name, :email, :has_been_reseller,
