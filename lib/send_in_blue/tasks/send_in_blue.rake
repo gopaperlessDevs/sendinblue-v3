@@ -36,7 +36,7 @@ namespace :send_in_blue do
       when "d", "date"
         "date"
       when "n", "number"
-        "number"
+        "float"
       when "b", "boolean"
         "boolean"
       else
@@ -45,7 +45,7 @@ namespace :send_in_blue do
       end
 
       type = type.to_s
-      puts "Creating SendInBlue attribute: [#{attr}: #{type}]!"
+      puts "Creating SendInBlue attribute: [#{attr}: #{type}]!\n"
 
       SendInBlue::Api.create_attribute(attr, type)
     end
