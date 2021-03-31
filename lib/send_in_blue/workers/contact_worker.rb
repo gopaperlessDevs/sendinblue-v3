@@ -4,12 +4,14 @@ module SendInBlue
   class ContactWorker
     include Sidekiq::Worker
 
+    sidekiq_options retry: 7
+
     attr_accessor :contact
 
     def perform(contact_id, action)
       @contact = SendInBlue.config.contact_model.find(contact_id)
 
-      send :action
+      send action
     rescue SibApiV3Sdk::ApiError => e
       raise SendInBlue::Error, "Error when calling SendInBlue ContactsApi.#{action} for #{contact_id}: #{e}"
     end

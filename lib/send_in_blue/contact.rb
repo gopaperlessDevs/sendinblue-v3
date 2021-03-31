@@ -12,7 +12,8 @@ module SendInBlue
                         consent_field: nil,
                       }
 
-      after_save :update_send_in_blue_contact
+      after_commit :create_send_in_blue_contact, on: :create
+      after_commit :update_send_in_blue_contact, on: :update
       before_destroy :delete_send_in_blue_contact
     end
 
@@ -97,6 +98,10 @@ module SendInBlue
         :sib_consent,
         :sib_env
       ].concat(self.class.send_in_blue_settings[:attributes])
+    end
+
+    def create_send_in_blue_contact
+      SendInBlue::ContactWorker.perform_async(id, :create)
     end
 
     def update_send_in_blue_contact
