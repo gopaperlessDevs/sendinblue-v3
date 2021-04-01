@@ -2,6 +2,8 @@ module SendInBlue
   class API
     class << self
       def create_contact(contact)
+        return false unless contact.consents_to_send_in_blue_email?
+
         contact_data = SibApiV3Sdk::CreateContact.new email: contact.sib_email, attributes: contact.send_in_blue_attributes
         result = nil
 
