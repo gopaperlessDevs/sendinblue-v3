@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    send_in_blue (0.1.29)
+    send_in_blue (0.1.41)
       activesupport (>= 5)
       addressable
       sib-api-v3-sdk
@@ -84,7 +84,7 @@ GEM
     ffi (1.15.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    i18n (1.8.9)
+    i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     json (2.5.1)
     loofah (2.9.0)
