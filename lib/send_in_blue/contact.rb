@@ -12,9 +12,9 @@ module SendInBlue
                         consent_field: nil,
                       }
 
-      after_commit :create_send_in_blue_contact, on: :create
-      after_commit :update_send_in_blue_contact, on: :update
-      before_destroy :delete_send_in_blue_contact
+      after_commit :create_send_in_blue_contact, on: :create, unless: -> { SendInBlue.config.test_mode }
+      after_commit :update_send_in_blue_contact, on: :update, unless: -> { SendInBlue.config.test_mode }
+      before_destroy :delete_send_in_blue_contact, unless: -> { SendInBlue.config.test_mode }
     end
 
     class_methods do

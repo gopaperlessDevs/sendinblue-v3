@@ -17,4 +17,7 @@ SendInBlue.configure do |c|
   # insert your own contact model here
   c.contact_model = User
   c.env = ENV["SEND_IN_BLUE_ENV"] || Rails.env
+
+  # if test mode is a truthy value, then active record callbacks on the contact model will not be called
+  c.test_mode = ENV["SEND_IN_BLUE_TEST_MODE"] || false
 end
