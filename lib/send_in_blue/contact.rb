@@ -5,12 +5,19 @@ module SendInBlue
     included do
       class_attribute :send_in_blue_settings,
                       instance_writer: false,
-                      default: {
-                        attributes: [],
-                        id_field: nil,
-                        email_field: :email,
-                        consent_field: nil,
-                      }
+                      # default: {
+                      #   attributes: [],
+                      #   id_field: nil,
+                      #   email_field: :email,
+                      #   consent_field: nil,
+                      # }
+
+      send_in_blue_settings = {
+                                attributes: [],
+                                id_field: nil,
+                                email_field: :email,
+                                consent_field: nil,
+                              }
 
       after_commit :create_send_in_blue_contact, on: :create, unless: -> { SendInBlue.config.test_mode }
       after_commit :update_send_in_blue_contact, on: :update, unless: -> { SendInBlue.config.test_mode }
