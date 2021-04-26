@@ -2,14 +2,6 @@
 
 ## Installation
 
-You may need to create an access token on Github to be able to install this private repo. Follow instructions here: https://medium.com/@frodsan/installing-a-gem-from-a-private-github-repo-heroku-a895073ae7d
-
-In short:
-`bundle config --local GITHUB__COM myoauthtoken:x-oauth-basic`
-
-and on heroku:
-`heroku config:add BUNDLE_GITHUB__COM=myoauthtoken:x-oauth-basic`
-
 Add this line to your application's Gemfile:
 
 ```ruby
