@@ -13,7 +13,7 @@ And then execute:
     $ bundle install
 
 
-run the initializer with:
+run the installer with:
 
 ```ruby
 rails g send_in_blue:install
