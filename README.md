@@ -5,7 +5,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "send_in_blue", git: 'https://github.com/gopaperlessDevs/send_in_blue.git'
+gem "send_in_blue", git: "https://github.com/gopaperlessDevs/sendinblue-v3.git"
 ```
 
 And then execute:
