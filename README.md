@@ -59,8 +59,7 @@ Configure a custom contact attributes for use with SendInBlue APIs wth ```send_i
 
 
 ```ruby
-# class User
-class Account < ApplicationRecord
+class User < ApplicationRecord
   # ...
   include SendInBlue::Contact
 
